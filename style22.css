@@ -7,8 +7,8 @@ body{
     
     table, td, th {  
         border: 1px solid transparent;
-        text-align: center;
-        margin-top: 0%;
+        text-align: left;
+        padding-right: 4%;
         
       }
       table
@@ -73,7 +73,17 @@ body{
   border-radius: 3px 3px 3px ;
   text-align: center;
 }
-
-  
+.btn-info
+{
+  background-color: aqua;
+  border: 1px solid transparent;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 7px;
+  padding-bottom: 8px;
+  overflow: hidden;
+  border-radius: 3px 3px 3px ;
+  text-align: center;
+}
 
     

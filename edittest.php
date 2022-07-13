@@ -48,7 +48,7 @@ if(isset($_POST['submit']))
   rename($folder.$img_name,$folder.$id.$png);
 
 }
-header("location:http://localhost/0.5/login.php");
+header("location:http://localhost/0.7/login.php");
 
 ?>
 

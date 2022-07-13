@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['chek'])) 
+{
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +19,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<button class="btn btn-info" onclick="myFunction()" src="http://localhost/0.7/">deconéction</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "<?php session_destroy(); ?>"
+}
+</script>
 
 <?php
 header('Cache-Control: no-cache, no-store, must-revalidate');
@@ -58,7 +74,7 @@ if (!empty($_POST['pid'])) {
   if ($data) {
     echo "<font color='green'> the row number $id  has been delated correctely"  ; 
     
-    header("Refresh:2;url= https://localhost/0.5/login.php");
+    header("Refresh:2;url= https://localhost/0.7/login.php");
   }else
   {
       echo "<font color='red'>is a error in your delete".mysqli_error($conn);
@@ -192,6 +208,13 @@ $conn = mysqli_connect ($serverName,$UserName, $password , $dbName );
 </body>
 
 </html>
-
-
+<?php
+}
+else
+{
+    echo "access denied";
+    header("Refresh:2;url= http://localhost/0.7/");
+}
+?>
+<br><br>
 
