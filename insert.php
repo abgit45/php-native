@@ -14,8 +14,7 @@
                                              <table> 
                                                   <tbody>
                                                      <tr> 
-                                                <th></th> 
-                                                        <th></th>
+                                                <th colspan="2">insert</th> 
                                                              </tr> 
                                                             
                                                              
@@ -83,8 +82,7 @@
                                                                                           </tr>
 
                                                                                            <tr>
-                                                                                           <td></td>
-                                                                                           <td> <button class ="bb" name ="upload" >insert</button>  </td> 
+                                                                                           <td colspan="3"> <button class ="bb" name ="upload" >insert</button>  </td> 
                                                                                           
                                                                                           </tr>
                                                                                            

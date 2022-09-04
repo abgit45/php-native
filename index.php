@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
         
      session_start();
      $_SESSION["chek"] = "chek";
-     header("location:http://localhost/0.7/login.php");
+     header("location:http://localhost/0.8/login.php");
     }
     else
     {
@@ -133,7 +133,7 @@ if(isset($_POST['username']))
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)==1){
       ?>
-      <script type="text/javascript"> window.location.href = "https://localhost/0.7/login.php" </script>
+      <script type="text/javascript"> window.location.href = "https://localhost/0.8/login.php" </script>
   <?php
         
     }

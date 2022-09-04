@@ -19,22 +19,52 @@ if(isset($_SESSION['chek']))
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<button class="btn btn-info" onclick="myFunction()" src="http://localhost/0.7/">deconéction</button>
-
-<p id="demo"></p>
-
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagination</title>
+</head>
+<body>
+  <?php
+  // define how many results you want per page an verification
+if(isset($_GET['select']))
+{
+  $results_per_page = $_GET['select'];
+}else
+{
+  $results_per_page = 10;
+}
+?>
+<form id="myForm" action="login.php" onchange="myFunction()">
+<select name="select" id="select">
+<option value="10" <?php if ($results_per_page == 10) { ?> selected="selected" <?php } ?>>10</option>
+<option value="20" <?php if ($results_per_page== 20) { ?> selected="selected" <?php } ?>> 20</option>
+<option value="30" <?php if ($results_per_page == 30) { ?> selected="selected" <?php } ?>> 30</option>
+<option value="40" <?php if ($results_per_page == 40) { ?> selected="selected" <?php } ?>> 40</option>
+<option value="50" <?php if ($results_per_page == 50) { ?> selected="selected" <?php } ?>> 50</option>
+<option value="100" <?php if ($results_per_page == 100) { ?> selected="selected" <?php } ?>> 100</option>
+ </select>
+ <form>
+ <script>
 function myFunction() {
-  document.getElementById("demo").innerHTML = "<?php session_destroy(); ?>"
+  document.getElementById("myForm").submit();
 }
 </script>
-
+</div>
+</body>
+</html>
+<p id="demo"></p>
 <?php
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 include ("config.php");
 
+if(isset($_POST['des'])) 
+{
+  session_destroy();
+}
 
                                       
  
@@ -74,7 +104,7 @@ if (!empty($_POST['pid'])) {
   if ($data) {
     echo "<font color='green'> the row number $id  has been delated correctely"  ; 
     
-    header("Refresh:2;url= https://localhost/0.7/login.php");
+    header("Refresh:2;url= https://localhost/0.8/login.php");
   }else
   {
       echo "<font color='red'>is a error in your delete".mysqli_error($conn);
@@ -89,19 +119,40 @@ if (!empty($_POST['pid'])) {
  <link rel="stylesheet" href="style4.css">
  <div class="container">
 <?php
-$sql = "SELECT * FROM users,images";
+$sql = "SELECT * FROM users";
 
 $result=mysqli_query($conn,$sql);
 $rowcount=mysqli_num_rows($result);
     
 //echo $rowcount;
 $conn = mysqli_connect ($serverName,$UserName, $password , $dbName );
-  $x=0;
   
   ?>
+<form id="myf" action="login.php" method="post">
 <div class="row">
-    <a href="insert.php" class="btn btn-primary"> Add user</a>
-</div>
+ <a href="insert.php" class="btn btn-primary"> Add user</a>
+<button class="btn btn-info" name="de" id="de" onclick="myFunction()">logout</button>
+
+</form>
+<?php
+
+// determine number of total pages available
+$number_of_pages = ceil($rowcount/$results_per_page);
+
+if (!isset($_GET['page'])) {
+  $page = 1;
+} else {
+  $page = $_GET['page'];
+}
+
+$this_page_first_result = ($page-1)*$results_per_page;
+
+// retrieve selected results from database and display them on page
+$sql='SELECT * FROM users LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+$result = mysqli_query($conn,$sql);
+?>
+<!-- create table html -->
+
 <div class="row">
       <table>
       <thead>
@@ -119,32 +170,25 @@ $conn = mysqli_connect ($serverName,$UserName, $password , $dbName );
   </tr>
       </thead>
       <tbody>
-
+<?php
+// display the links to the pages
+?>
       <?php
-      while ($x <= $rowcount)
+      while ($row = mysqli_fetch_array($result))
       {
-
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-        
-
-      if ($row) {
         ?>
         <tr>
           <form action="login.php" method="POST">
                 <?php 
                 $id = $row['id']; 
-                 $extention = $row['extention']; 
                  $user = $row['username']; 
                  $pass = $row['password']; 
                  $em = $row['email']; 
                  $tel = $row['telnum']; 
                  $hasimg = $row ['has_img'];
-
-                ?>
-                                        
+                ?>                    
                 <td> 
-                  <?php
+ <?php
                   if($hasimg == 0) 
                   {
             $img = "nophoto";
@@ -158,8 +202,6 @@ $conn = mysqli_connect ($serverName,$UserName, $password , $dbName );
                     <?php
                   }
                    ?> 
-                  
-                 
                                          
       </td> 
                 <td><?php echo $id; ?></td>
@@ -193,17 +235,18 @@ $conn = mysqli_connect ($serverName,$UserName, $password , $dbName );
 
       <?php
       }
-      $x++;
-      }
-      
       ?>
- 
   </tbody>
-  
-
     </table>
     </div>
 </row>
+</div>
+<div>
+<?php
+for ($page=1;$page<=$number_of_pages;$page++) {
+  echo '<button id="d"> <a href="login.php?page=' . $page . '&select=' . $results_per_page . ' ">' . $page . '</a></button> ';
+}
+?>
 </div>
 </body>
 
@@ -213,7 +256,7 @@ $conn = mysqli_connect ($serverName,$UserName, $password , $dbName );
 else
 {
     echo "access denied";
-    header("Refresh:2;url= http://localhost/0.7/");
+    header("Refresh:2;url= http://localhost/0.8/");
 }
 ?>
 <br><br>

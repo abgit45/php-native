@@ -7,12 +7,14 @@ body{
     
     table, td, th {  
         border: 1px solid transparent;
-        text-align: left;
+        text-align: center;
         padding-right: 4%;
+        border-collapse: collapse;
         
       }
       table
       {
+
        position: fixed;
        left: 50%;
        top: 50%;
@@ -47,7 +49,8 @@ body{
        font-family: 'Open Sans',Sans-serif;
        font-weight: 200;
        text-transform: uppercase;
-       
+       text-align: center;
+
       
          }
          tr{

@@ -53,4 +53,17 @@ body{
     {
       margin-top: 1%;
     }
-    
+    #de{
+      margin-left:970px;
+      margin-top: 1.5%;
+    }
+    #select
+    {
+      margin-left:850px;
+      margin-top: 1.5%;
+      width: 10%;
+    }
+    #d
+    {
+      margin-top: 1.5%;
+    }
