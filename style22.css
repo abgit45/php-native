@@ -1,0 +1,95 @@
+body{
+    margin: 0 auto;
+      background-image: url(mo.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 1000px;
+    }
+    
+    table, td, th {  
+        border: 1px solid transparent;
+        text-align: center;
+        margin-top: 0%;
+        
+      }
+      table
+      {
+       position: fixed;
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%,-50%);
+       width: 19%;
+       border-collapse: collapse;
+       border-spacing: 0;
+       box-shadow: 0 2px 15px rgba(64,64,64,.7);
+       border-radius: 9px 9px 9px 9px;
+       overflow: hidden;
+       display: block;
+       overflow-y: auto;
+       border-color: transparent;
+      }
+      
+      .uploaded-image{
+        padding: 10px;
+          margin-left: 100%;
+      }
+      
+      .uploaded-image p{
+        margin-top: 10px;
+      }
+         th,td
+         {
+          padding: 15px;
+         }
+         th
+         {
+          background-color: #E0FFFF;
+       color: #000;
+       font-family: 'Open Sans',Sans-serif;
+       font-weight: 200;
+       text-transform: uppercase;
+       
+      
+         }
+         tr{
+       width: 49%;
+       background-color: #fafafa;
+       font-family: 'Montserrat', sans-serif;
+      }
+      tr:nth-child(even){
+       background-color: #eeeeee;
+      }
+    a
+    {
+      margin-top :2%;
+      margin-left :20%;
+      width: 10%;
+      background-color: blue;
+    }
+ input[type=file]
+ {
+
+    width: 100%;
+   
+   
+  }
+
+.yu
+{
+  margin-left: 30px;
+}
+.bb
+{
+  background-color: aqua;
+  border: 1px solid transparent;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 7px;
+  padding-bottom: 8px;
+  overflow: hidden;
+  border-radius: 3px 3px 3px ;
+  text-align: center;
+}
+
+  
+
+    
