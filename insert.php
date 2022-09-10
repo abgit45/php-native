@@ -1,7 +1,6 @@
 <!DOCTYPE html>
      <html lang="en">
         <head> 
-     <?php require("upload.php"); ?>
              <?php include ("config.php"); ?>
           <meta charset="UTF-8">
                <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -11,25 +11,16 @@
 <?php 
 if(!empty($_FILES['image'])){ 
 
-	
-		$new_name = $_POST['id'] ; 
-
-		
-
-			
-			
-			
-		
 				$ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
 
 				
-				move_uploaded_file($_FILES["image"]["tmp_name"], "upload/{$new_name}.{$ext}");
+				move_uploaded_file($_FILES["image"]["tmp_name"], "upload/{$id}.{$ext}");
 
 				
 					$success = "File uploaded successfully"; 
 
-					$exted_image = "upload/{$new_name}.{$ext}";
-					$name = "{$new_name}.{$ext}"; 
+					$exted_image = "upload/{$id}.{$ext}";
+					$name = "{$id}.{$ext}"; 
 
 				
 

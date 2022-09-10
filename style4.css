@@ -49,13 +49,46 @@ body{
        background-color: #eeeeee;
       }
     
-    a
+    .a
     {
+      text-decoration: none;
       margin-top: 1%;
+      color: #fff;
     }
-    #de{
-      margin-left:970px;
+    a:link
+    {
+      text-decoration: none;
+      color: #fff;
+    }
+    .a:hover
+    {
+      color: #fff;
+    }
+    .de{
+      margin-left:1120px;
       margin-top: 1.5%;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
     }
     #select
     {
@@ -67,3 +100,5 @@ body{
     {
       margin-top: 1.5%;
     }
+    
+    
