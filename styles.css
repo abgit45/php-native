@@ -1,0 +1,23 @@
+.uploaded-image{
+	padding: 10px;
+    margin-left: 49%;
+}
+
+.uploaded-image p{
+	margin-top: 10px;
+}
+
+
+
+
+.error{
+	color:  red;
+	margin-top: 20px;
+	font-size: 15px;
+}
+
+.success{
+	color:  green;
+	margin-top: 20px;
+	font-size: 15px;
+}
