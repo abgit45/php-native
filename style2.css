@@ -1,0 +1,43 @@
+body{
+margin: 0 auto;
+  background-image: url(mo.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 1000px;
+}
+
+
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: center;
+    margin-top: 0%;
+  }
+    
+     th,td
+     {
+      padding: 15px;
+     }
+     th
+     {
+      background-color: #E0FFFF;
+   color: #000;
+   font-family: 'Open Sans',Sans-serif;
+   font-weight: 200;
+   text-transform: uppercase;
+     }
+     tr{
+   width: 100%;
+   background-color: #fafafa;
+   font-family: 'Montserrat', sans-serif;
+  }
+  tr:nth-child(even){
+   background-color: #eeeeee;
+  }
+
+a
+{
+  margin-top :2%;
+  width: 10%;
+  background-color: blue;
+}
+
+

@@ -1,0 +1,57 @@
+body{
+    margin: 0 auto;
+      background-image: url(mo.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 1000px;
+      
+    }
+    
+    
+    table, td, th {  
+        border: 1px solid #ddd;
+        text-align: center;
+       
+      }
+      table
+      {
+      
+      width: 100%; 
+      margin-top: 2%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      box-shadow: 0 2px 15px rgba(64,64,64,.7);
+      border-radius: 9px 9px  9px;
+      display: auto;
+        overflow-y: auto;
+        height: 850px;
+        float: center;
+        
+      
+      }
+        
+         th,td
+         {
+          padding: 15px;
+         }
+         th
+         {
+          background-color: #E0FFFF;
+       color: #000;
+       font-family: 'Open Sans',Sans-serif;
+       font-weight: 200;
+       text-transform: uppercase;
+         }
+       tr{
+       width: 100%;
+       background-color: #fafafa;
+       font-family: 'Montserrat', sans-serif;
+      }
+      tr:nth-child(even){
+       background-color: #eeeeee;
+      }
+    
+    a
+    {
+      margin-top: 1%;
+    }
+    
