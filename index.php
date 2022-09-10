@@ -1,6 +1,31 @@
+<form action="login.php" method="post">
+<?php
+$user = "abdo";
+$pass = "admin";
+
+if(isset($_POST['submit']))
+{
+
+    if ($_POST['username'] == $user && $_POST['password'] == $pass)
+    {
+        
+        
+     session_start();
+     $_SESSION["chek"] = "chek";
+     header("location:http://localhost/0.9/students.php");
+    }
+    else
+    {
+       echo "wrog user or pass word ";
+    }
+
+} 
+?>
+</form>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="login.php">
     <title> Login Form in HTML5 and CSS3</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -85,7 +110,7 @@ input[type="text"],input[type="password"]{
 			<div class="form-input">
 				<input type="password" name="password" placeholder="password"/>
 			</div>
-			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+			<input type="submit" name ="submit" id ="submit" value="submit" class="btn-login"/>
 		</form>
 	</div>
 </body>
@@ -93,7 +118,7 @@ input[type="text"],input[type="password"]{
 <!-- -------php------ -->
 <?php
 
-include('config.php');
+include('dbcon.php');
 
 
 
@@ -104,11 +129,12 @@ if(isset($_POST['username']))
     $password=$_POST['password'];
     
     $sql="SELECT * from loginform WHERE user ='".$uname."'AND Pass='".$password."' limit 1";
+    $result=mysqli_query($con,$sql);
+    $rowcount=mysqli_num_rows($result);
     
-    $result=mysqli_query($conn,$sql);
-    if(mysqli_num_rows($result)==1){
+    if($rowcount==1){
       ?>
-      <script type="text/javascript"> window.location.href = "https://localhost/0.2/login.php" </script>
+      <script type="text/javascript"> window.location.href = "https://localhost/0.9/login.php" </script>
   <?php
         
     }
