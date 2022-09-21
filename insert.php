@@ -13,9 +13,7 @@ if(isset($_POST["operation"]))
 			$check=mysqli_query($conn,$sql);
 			$checkrows=mysqli_num_rows($check);
 			if($checkrows>0) {
-				?>
-				<script>alert('customer exists');</script>
-				<?php
+				echo 'costom exist';
 			 } else 
 			 { 
 				
@@ -25,8 +23,8 @@ if(isset($_POST["operation"]))
 							$image = upload_image();
 						}
 						$statement = $connection->prepare("
-							INSERT INTO users (first_name, last_name, email, pass, image) 
-							VALUES (:first_name, :last_name, :email, :pass, :image)
+							INSERT INTO users (first_name, last_name, email, pass, image, role_name) 
+							VALUES (:first_name, :last_name, :email, :pass, :image, :role_name)
 						");
 						$result = $statement->execute(
 							array(
@@ -34,7 +32,8 @@ if(isset($_POST["operation"]))
 								':last_name'	=>	$_POST["last_name"],
 								':email'	=>	$_POST["email"],
 								':pass'	=>	$_POST["pass"],
-								':image'		=>	$image
+								':image'		=>	$image,
+								':role_name'	=>	$_POST["role_name"]
 							)
 						);
 						if(!empty($result))
@@ -45,7 +44,7 @@ if(isset($_POST["operation"]))
 				}
 		}
 	}
- 
+
  if($_POST["operation"] == "Edit")
  {
 	 $image = '';
@@ -59,7 +58,7 @@ if(isset($_POST["operation"]))
 	 }
 	 $statement = $connection->prepare(
 		 "UPDATE users 
-		 SET first_name = :first_name, last_name = :last_name, email = :email, pass = :pass, image = :image  
+		 SET first_name = :first_name, last_name = :last_name, email = :email, pass = :pass, image = :image, :role_name = :role_name
 		 WHERE id = :id
 		 "
 	 );
@@ -70,7 +69,7 @@ if(isset($_POST["operation"]))
 			 ':email'	=>	$_POST["email"],
 			 ':pass'	=>	$_POST["pass"],
 			 ':image'		=>	$image,
-			 ':id'			=>	$_POST["user_id"]
+			 ':role_name'		=>	$_POST["role_name"]
 		 )
 	 );
 	 if(!empty($result))

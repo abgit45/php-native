@@ -1,4 +1,10 @@
 <?php
+session_start();
+$array= str_split($_SESSION['role_code']);
+$array2 = $array[1];
+
+
+
 include('db.php');
 include('function.php');
 $query = '';
@@ -10,7 +16,9 @@ if(isset($_POST["search"]["value"]))
 	$query .= 'OR last_name LIKE "%'.$_POST["search"]["value"].'%" ';
 	$query .= 'OR email LIKE "%'.$_POST["search"]["value"].'%" ';
 	$query .= 'OR pass LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'OR role_name LIKE "%'.$_POST["search"]["value"].'%" ';
 }
+
 if(isset($_POST["order"]))
 {
 	$query .= 'ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
@@ -23,6 +31,8 @@ if($_POST["length"] != -1)
 {
 	$query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 }
+
+
 $statement = $connection->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
@@ -41,6 +51,7 @@ foreach($result as $row)
 	}
 	$sub_array = array();
 	$sub_array[] = $row["id"];
+	$sub_array[] = $row["role_name"];
 	$sub_array[] = $image;
 	$sub_array[] = $row["first_name"];
 	$sub_array[] = $row["last_name"];

@@ -25,6 +25,7 @@ if(isset($_POST["user_id"]))
 		{
 			$output['user_image'] = '<input type="hidden" name="hidden_user_image" value="" />';
 		}
+		$output["role_name"] = $row["role_name"];
 	}
 	echo json_encode($output);
 }
